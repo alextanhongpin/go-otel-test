@@ -110,7 +110,7 @@ func main() {
 			}
 		}
 
-		b, err := json.Marshal(exporter.GetSpans().Snapshots())
+		b, err := json.MarshalIndent(exporter.GetSpans().Snapshots(), "", " ")
 		if err != nil {
 			panic(err)
 		}
@@ -118,7 +118,7 @@ func main() {
 		// This will output readonly span.
 		// 2023/07/01 21:53:30 [{"ReadOnlySpan":null},{"ReadOnlySpan":null},{"ReadOnlySpan":null}]
 
-		b, err = json.Marshal(exporter.GetSpans())
+		b, err = json.MarshalIndent(exporter.GetSpans(), "", " ")
 		if err != nil {
 			panic(err)
 		}
